@@ -1,17 +1,43 @@
 import 'package:flutter/material.dart';
 
+/// Defines the visual theme for the feature tour.
+///
+/// This class encapsulates all the styling properties used throughout the feature tour,
+/// allowing for consistent and customizable appearance across all tour elements.
 class FeatureTourTheme {
+  /// The color of the overlay that dims the background during the tour.
   final Color overlayColor;
+
+  /// The color used to highlight the featured elements.
   final Color highlightColor;
+
+  /// The background color of the info card.
   final Color cardColor;
+
+  /// The primary text color used in the info card.
   final Color textColor;
+
+  /// The color used for interactive elements like buttons.
   final Color primaryColor;
+
+  /// The text style used for titles in the info card.
   final TextStyle titleStyle;
+
+  /// The text style used for body text in the info card.
   final TextStyle bodyStyle;
+
+  /// The text style used for buttons in the info card.
   final TextStyle buttonStyle;
+
+  /// The corner radius used for the info card and buttons.
   final double cornerRadius;
+
+  /// The width of the border used in the highlight shape.
   final double highlightBorderWidth;
 
+  /// Creates a [FeatureTourTheme] with default or custom values.
+  ///
+  /// All parameters are optional and will use default values if not specified.
   const FeatureTourTheme({
     this.overlayColor = Colors.black54,
     this.highlightColor = Colors.purple,
@@ -25,6 +51,13 @@ class FeatureTourTheme {
     this.highlightBorderWidth = 2.0,
   });
 
+  /// Creates a [FeatureTourTheme] based on the provided [ThemeData].
+  ///
+  /// This factory constructor allows for easy integration with the app's existing theme.
+  /// It extracts relevant colors and text styles from the provided [theme] to create
+  /// a cohesive look for the feature tour.
+  ///
+  /// [theme] - The [ThemeData] to base the feature tour theme on.
   factory FeatureTourTheme.fromTheme(ThemeData theme) {
     return FeatureTourTheme(
       overlayColor: theme.colorScheme.onSurface.withOpacity(0.5),

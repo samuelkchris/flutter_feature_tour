@@ -1,14 +1,17 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:flutter_feature_tour/flutter_feature_tour.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
-  _MyAppState createState() => _MyAppState();
+  State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
@@ -34,10 +37,10 @@ class MyHomePage extends StatefulWidget {
   final Function toggleTheme;
   final bool isDarkMode;
 
-  MyHomePage({required this.toggleTheme, required this.isDarkMode});
+  const MyHomePage({super.key, required this.toggleTheme, required this.isDarkMode});
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  State<MyHomePage>  createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -87,7 +90,9 @@ class _MyHomePageState extends State<MyHomePage> {
   void _setupOnboarding() {
     // Set up analytics callback
     _onboardingService.setAnalyticsCallback((String event, Map<String, dynamic> properties) {
-      print('Analytics Event: $event, Properties: $properties');
+      if (kDebugMode) {
+        print('Analytics Event: $event, Properties: $properties');
+      }
       // Implement your analytics tracking here
     });
 
@@ -209,31 +214,10 @@ class _MyHomePageState extends State<MyHomePage> {
               _onboardingService.restartOnboarding(context);
             },
           ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: 20,
-              itemBuilder: (context, index) {
-                if (index == 15) {
-                  return ListTile(
-                    key: _scrollItemKey,
-                    leading: const Icon(Iconsax.star1, color: Colors.yellow),
-                    title: const Text('Special Item'),
-                    subtitle: const Text('This item is highlighted in the tour'),
-                    trailing: const Icon(Iconsax.arrow_right_3),
-                  );
-                }
-                return ListTile(
-                  leading: const Icon(Iconsax.document),
-                  title: Text('Item $index'),
-                  subtitle: const Text('This is a regular list item'),
-                  trailing: const Icon(Iconsax.arrow_right_3),
-                );
-              },
-            ),
-          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
+        key: _scrollItemKey,
         onPressed: () {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content: Text('Add new item')),
