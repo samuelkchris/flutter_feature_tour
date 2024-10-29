@@ -40,16 +40,18 @@ class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.toggleTheme, required this.isDarkMode});
 
   @override
-  State<MyHomePage>  createState() => _MyHomePageState();
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
   final OnboardingService _onboardingService = OnboardingService();
+  final GlobalKey _dashboardKey = GlobalKey();
   final GlobalKey _searchKey = GlobalKey();
   final GlobalKey _profileKey = GlobalKey();
   final GlobalKey _settingsKey = GlobalKey();
   final GlobalKey _notificationKey = GlobalKey();
-  final GlobalKey _scrollItemKey = GlobalKey();
+  final GlobalKey _addItemKey = GlobalKey();
+  final GlobalKey _listItemKey = GlobalKey();
   bool _useCustomTourTheme = true;
 
   @override
@@ -88,6 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _setupOnboarding() {
+    _onboardingService.startOnboarding(context);
     // Set up analytics callback
     _onboardingService.setAnalyticsCallback((String event, Map<String, dynamic> properties) {
       if (kDebugMode) {
@@ -98,9 +101,19 @@ class _MyHomePageState extends State<MyHomePage> {
 
     _onboardingService.addFeatureHighlightStep([
       FeatureHighlight(
+        targetKey: _dashboardKey,
+        title: 'Welcome to Your Dashboard',
+        description: 'This is your central hub for all app activities. Let\'s explore the key features!',
+        icon: Iconsax.category,
+        shape: HighlightShape.rectangle,
+      ),
+    ]);
+
+    _onboardingService.addFeatureHighlightStep([
+      FeatureHighlight(
         targetKey: _searchKey,
-        title: 'Search',
-        description: 'Quickly find what you need using our powerful search feature.',
+        title: 'Quick Search',
+        description: 'Find anything in the app instantly with our powerful search feature.',
         icon: Iconsax.search_normal,
         shape: HighlightShape.circle,
       ),
@@ -109,8 +122,8 @@ class _MyHomePageState extends State<MyHomePage> {
     _onboardingService.addFeatureHighlightStep([
       FeatureHighlight(
         targetKey: _profileKey,
-        title: 'Profile',
-        description: 'View and edit your profile information here.',
+        title: 'Your Profile',
+        description: 'View and customize your profile information here.',
         icon: Iconsax.user,
         shape: HighlightShape.rectangle,
       ),
@@ -119,8 +132,8 @@ class _MyHomePageState extends State<MyHomePage> {
     _onboardingService.addFeatureHighlightStep([
       FeatureHighlight(
         targetKey: _settingsKey,
-        title: 'Settings',
-        description: 'Customize the app to your liking in the settings menu.',
+        title: 'App Settings',
+        description: 'Tailor the app to your preferences in the settings menu.',
         icon: Iconsax.setting_2,
         shape: HighlightShape.circle,
       ),
@@ -129,8 +142,8 @@ class _MyHomePageState extends State<MyHomePage> {
     _onboardingService.addFeatureHighlightStep([
       FeatureHighlight(
         targetKey: _notificationKey,
-        title: 'Notifications',
-        description: 'Stay updated with the latest news and alerts.',
+        title: 'Stay Updated',
+        description: 'Get real-time notifications about important events and updates.',
         icon: Iconsax.notification,
         shape: HighlightShape.circle,
       ),
@@ -138,10 +151,20 @@ class _MyHomePageState extends State<MyHomePage> {
 
     _onboardingService.addFeatureHighlightStep([
       FeatureHighlight(
-        targetKey: _scrollItemKey,
-        title: 'Special Item',
-        description: 'This item is highlighted to show you can target list items too!',
-        icon: Iconsax.star,
+        targetKey: _addItemKey,
+        title: 'Add New Items',
+        description: 'Quickly add new items to your list with this floating action button.',
+        icon: Iconsax.add,
+        shape: HighlightShape.circle,
+      ),
+    ]);
+
+    _onboardingService.addFeatureHighlightStep([
+      FeatureHighlight(
+        targetKey: _listItemKey,
+        title: 'Interactive List Items',
+        description: 'Each item in the list is interactive. Try swiping or tapping for more options!',
+        icon: Iconsax.edit,
         shape: HighlightShape.rectangle,
       ),
     ]);
@@ -154,7 +177,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: () {
           // Simulate an action
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('You tried the feature!')),
+            const SnackBar(content: Text('Great job! You\'ve tried the feature!')),
           );
           onComplete();
         },
@@ -166,7 +189,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Feature Tour Example'),
+        title: const Text('Feature Tour Demo'),
         actions: [
           IconButton(
             key: _searchKey,
@@ -192,6 +215,19 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
         children: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Card(
+              key: _dashboardKey,
+              child: const Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Text(
+                  'Welcome to Your Dashboard',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -209,18 +245,37 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           ElevatedButton.icon(
             icon: const Icon(Iconsax.repeat),
-            label: const Text('Restart Onboarding'),
+            label: const Text('Restart Feature Tour'),
             onPressed: () {
               _onboardingService.restartOnboarding(context);
             },
           ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: 10,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  key: index == 0 ? _listItemKey : null,
+                  leading: const Icon(Iconsax.document),
+                  title: Text('Item ${index + 1}'),
+                  subtitle: const Text('Swipe me or tap for options'),
+                  trailing: const Icon(Iconsax.arrow_right_3),
+                  onTap: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('You tapped on Item ${index + 1}')),
+                    );
+                  },
+                );
+              },
+            ),
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        key: _scrollItemKey,
+        key: _addItemKey,
         onPressed: () {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Add new item')),
+            const SnackBar(content: Text('Adding a new item')),
           );
         },
         child: const Icon(Iconsax.add),
