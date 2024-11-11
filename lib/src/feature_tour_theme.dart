@@ -44,9 +44,11 @@ class FeatureTourTheme {
     this.cardColor = Colors.white,
     this.textColor = Colors.black87,
     this.primaryColor = Colors.purple,
-    this.titleStyle = const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+    this.titleStyle =
+        const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
     this.bodyStyle = const TextStyle(fontSize: 14),
-    this.buttonStyle = const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+    this.buttonStyle =
+        const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
     this.cornerRadius = 8.0,
     this.highlightBorderWidth = 2.0,
   });

@@ -52,7 +52,8 @@ class HighlightPainter extends CustomPainter {
   /// Draws a circular highlight.
   void _drawCircle(Canvas canvas, Size size, Paint paint) {
     final center = Offset(size.width / 2, size.height / 2);
-    final radius = (size.width < size.height ? size.width : size.height) / 2 - strokeWidth / 2;
+    final radius = (size.width < size.height ? size.width : size.height) / 2 -
+        strokeWidth / 2;
     canvas.drawCircle(center, radius, paint);
   }
 
@@ -77,7 +78,7 @@ class HighlightPainter extends CustomPainter {
   @override
   bool shouldRepaint(HighlightPainter oldDelegate) =>
       oldDelegate.shape != shape ||
-          oldDelegate.customPath != customPath ||
-          oldDelegate.color != color ||
-          oldDelegate.strokeWidth != strokeWidth;
+      oldDelegate.customPath != customPath ||
+      oldDelegate.color != color ||
+      oldDelegate.strokeWidth != strokeWidth;
 }

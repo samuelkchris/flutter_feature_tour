@@ -67,5 +67,5 @@ class FeatureHighlight {
     this.shape = HighlightShape.circle,
     this.customPath,
   }) : assert(shape != HighlightShape.customPath || customPath != null,
-  'customPath must be provided when shape is HighlightShape.customPath');
+            'customPath must be provided when shape is HighlightShape.customPath');
 }

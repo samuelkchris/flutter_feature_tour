@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:flutter_feature_tour/flutter_feature_tour.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await OnboardingService().initialize();
   runApp(const MyApp());
 }
 
@@ -27,7 +29,9 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Feature Tour Example',
-      theme: _isDarkMode ? ThemeData.dark(useMaterial3: true) : ThemeData.light(useMaterial3: true),
+      theme: _isDarkMode
+          ? ThemeData.dark(useMaterial3: true)
+          : ThemeData.light(useMaterial3: true),
       home: MyHomePage(toggleTheme: toggleTheme, isDarkMode: _isDarkMode),
     );
   }
@@ -37,7 +41,8 @@ class MyHomePage extends StatefulWidget {
   final Function toggleTheme;
   final bool isDarkMode;
 
-  const MyHomePage({super.key, required this.toggleTheme, required this.isDarkMode});
+  const MyHomePage(
+      {super.key, required this.toggleTheme, required this.isDarkMode});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -78,7 +83,8 @@ class _MyHomePageState extends State<MyHomePage> {
         highlightBorderWidth: 3.0,
       ));
     } else {
-      _onboardingService.setTheme(FeatureTourTheme.fromTheme(Theme.of(context)));
+      _onboardingService
+          .setTheme(FeatureTourTheme.fromTheme(Theme.of(context)));
     }
   }
 
@@ -92,7 +98,8 @@ class _MyHomePageState extends State<MyHomePage> {
   void _setupOnboarding() {
     _onboardingService.startOnboarding(context);
     // Set up analytics callback
-    _onboardingService.setAnalyticsCallback((String event, Map<String, dynamic> properties) {
+    _onboardingService
+        .setAnalyticsCallback((String event, Map<String, dynamic> properties) {
       if (kDebugMode) {
         print('Analytics Event: $event, Properties: $properties');
       }
@@ -103,7 +110,8 @@ class _MyHomePageState extends State<MyHomePage> {
       FeatureHighlight(
         targetKey: _dashboardKey,
         title: 'Welcome to Your Dashboard',
-        description: 'This is your central hub for all app activities. Let\'s explore the key features!',
+        description:
+            'This is your central hub for all app activities. Let\'s explore the key features!',
         icon: Iconsax.category,
         shape: HighlightShape.rectangle,
       ),
@@ -113,7 +121,8 @@ class _MyHomePageState extends State<MyHomePage> {
       FeatureHighlight(
         targetKey: _searchKey,
         title: 'Quick Search',
-        description: 'Find anything in the app instantly with our powerful search feature.',
+        description:
+            'Find anything in the app instantly with our powerful search feature.',
         icon: Iconsax.search_normal,
         shape: HighlightShape.circle,
       ),
@@ -143,7 +152,8 @@ class _MyHomePageState extends State<MyHomePage> {
       FeatureHighlight(
         targetKey: _notificationKey,
         title: 'Stay Updated',
-        description: 'Get real-time notifications about important events and updates.',
+        description:
+            'Get real-time notifications about important events and updates.',
         icon: Iconsax.notification,
         shape: HighlightShape.circle,
       ),
@@ -153,7 +163,8 @@ class _MyHomePageState extends State<MyHomePage> {
       FeatureHighlight(
         targetKey: _addItemKey,
         title: 'Add New Items',
-        description: 'Quickly add new items to your list with this floating action button.',
+        description:
+            'Quickly add new items to your list with this floating action button.',
         icon: Iconsax.add,
         shape: HighlightShape.circle,
       ),
@@ -163,21 +174,24 @@ class _MyHomePageState extends State<MyHomePage> {
       FeatureHighlight(
         targetKey: _listItemKey,
         title: 'Interactive List Items',
-        description: 'Each item in the list is interactive. Try swiping or tapping for more options!',
+        description:
+            'Each item in the list is interactive. Try swiping or tapping for more options!',
         icon: Iconsax.edit,
         shape: HighlightShape.rectangle,
       ),
     ]);
 
     // Set up interactive widget builder
-    _onboardingService.setInteractiveWidgetBuilder((BuildContext context, VoidCallback onComplete) {
+    _onboardingService.setInteractiveWidgetBuilder(
+        (BuildContext context, VoidCallback onComplete) {
       return ElevatedButton.icon(
         icon: const Icon(Iconsax.play),
         label: const Text('Try it out!'),
         onPressed: () {
           // Simulate an action
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Great job! You\'ve tried the feature!')),
+            const SnackBar(
+                content: Text('Great job! You\'ve tried the feature!')),
           );
           onComplete();
         },
@@ -237,8 +251,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () => widget.toggleTheme(),
               ),
               ElevatedButton.icon(
-                icon: Icon(_useCustomTourTheme ? Iconsax.brush_1 : Iconsax.brush_4),
-                label: Text(_useCustomTourTheme ? 'Default Tour Theme' : 'Custom Tour Theme'),
+                icon: Icon(
+                    _useCustomTourTheme ? Iconsax.brush_1 : Iconsax.brush_4),
+                label: Text(_useCustomTourTheme
+                    ? 'Default Tour Theme'
+                    : 'Custom Tour Theme'),
                 onPressed: _toggleTourTheme,
               ),
             ],
@@ -262,7 +279,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   trailing: const Icon(Iconsax.arrow_right_3),
                   onTap: () {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('You tapped on Item ${index + 1}')),
+                      SnackBar(
+                          content: Text('You tapped on Item ${index + 1}')),
                     );
                   },
                 );

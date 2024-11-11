@@ -182,7 +182,7 @@ class _FeatureHighlightOverlayState extends State<FeatureHighlightOverlay>
   Widget _buildInfoCard(BuildContext context) {
     final highlight = widget.highlights.first;
     final targetBox =
-    highlight.targetKey.currentContext?.findRenderObject() as RenderBox?;
+        highlight.targetKey.currentContext?.findRenderObject() as RenderBox?;
     final targetPosition = targetBox?.localToGlobal(Offset.zero);
     final targetSize = targetBox?.size;
 
@@ -194,7 +194,8 @@ class _FeatureHighlightOverlayState extends State<FeatureHighlightOverlay>
     final isOnLeftSide = targetPosition.dx < screenSize.width / 2;
 
     // Calculate available space below the target
-    final spaceBelow = screenSize.height - (targetPosition.dy + targetSize.height);
+    final spaceBelow =
+        screenSize.height - (targetPosition.dy + targetSize.height);
 
     // Determine if there's enough space below (e.g., 100 pixels as a threshold)
     final enoughSpaceBelow = spaceBelow > 100;
@@ -228,7 +229,6 @@ class _FeatureHighlightOverlayState extends State<FeatureHighlightOverlay>
           skipButtonFocus: _skipButtonFocus,
           nextButtonFocus: _nextButtonFocus,
           interactiveWidget: widget.interactiveWidget,
-
         ),
       ),
     );

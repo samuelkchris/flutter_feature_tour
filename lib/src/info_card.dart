@@ -65,7 +65,8 @@ class InfoCard extends StatelessWidget {
       constraints: const BoxConstraints(maxWidth: 300),
       child: Card(
         elevation: 8,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(theme.cornerRadius)),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(theme.cornerRadius)),
         color: theme.cardColor,
         child: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -121,7 +122,8 @@ class InfoCard extends StatelessWidget {
         if (currentStep <= totalSteps)
           Text(
             '$currentStep of $totalSteps',
-            style: theme.bodyStyle.copyWith(color: theme.textColor.withOpacity(0.6)),
+            style: theme.bodyStyle
+                .copyWith(color: theme.textColor.withOpacity(0.6)),
           )
         else
           const SizedBox.shrink(),
@@ -147,7 +149,8 @@ class InfoCard extends StatelessWidget {
         focusNode: skipButtonFocus,
         child: TextButton(
           onPressed: onSkip,
-          child: Text('Skip', style: theme.buttonStyle.copyWith(color: theme.primaryColor)),
+          child: Text('Skip',
+              style: theme.buttonStyle.copyWith(color: theme.primaryColor)),
         ),
       ),
     );
@@ -169,7 +172,8 @@ class InfoCard extends StatelessWidget {
           style: ElevatedButton.styleFrom(
             foregroundColor: theme.cardColor,
             backgroundColor: theme.primaryColor,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(theme.cornerRadius)),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(theme.cornerRadius)),
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           ).copyWith(
             textStyle: WidgetStateProperty.all(theme.buttonStyle),
