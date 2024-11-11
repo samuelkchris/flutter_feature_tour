@@ -7,31 +7,31 @@ engaging onboarding experiences and highlight key features of your app.
 
 ![Flutter Feature Tour Demo](https://via.placeholder.com/600x300.png?text=Flutter+Feature+Tour+Demo)
 <!-- BEGIN DEMO -->
-![USimulator Screenshot - iPhone 16 Pro - 2024-11-11 at 21.54.38](https://github.com/samuelkchris/flutter_feature_tour/blob/master/images/images/Simulator
+![USimulator Screenshot - iPhone 16 Pro - 2024-11-11 at 21.54.38](https://github.com/samuelkchris/flutter_feature_tour/blob/master/images/Simulator
 Screenshot - iPhone 16 Pro - 2024-11-11 at 21.54.38.png)
 
-![USimulator Screenshot - iPhone 16 Pro - 2024-11-11 at 21.54.46](https://github.com/samuelkchris/flutter_feature_tour/blob/master/images/images/Simulator
+![USimulator Screenshot - iPhone 16 Pro - 2024-11-11 at 21.54.46](https://github.com/samuelkchris/flutter_feature_tour/blob/master/images/Simulator
 Screenshot - iPhone 16 Pro - 2024-11-11 at 21.54.46.png)
 
-![USimulator Screenshot - iPhone 16 Pro - 2024-11-11 at 21.54.52](https://github.com/samuelkchris/flutter_feature_tour/blob/master/images/images/Simulator
+![USimulator Screenshot - iPhone 16 Pro - 2024-11-11 at 21.54.52](https://github.com/samuelkchris/flutter_feature_tour/blob/master/images/Simulator
 Screenshot - iPhone 16 Pro - 2024-11-11 at 21.54.52.png)
 
-![USimulator Screenshot - iPhone 16 Pro - 2024-11-11 at 21.55.03](https://github.com/samuelkchris/flutter_feature_tour/blob/master/images/images/Simulator
+![USimulator Screenshot - iPhone 16 Pro - 2024-11-11 at 21.55.03](https://github.com/samuelkchris/flutter_feature_tour/blob/master/images/Simulator
 Screenshot - iPhone 16 Pro - 2024-11-11 at 21.55.03.png)
 
-![USimulator Screenshot - iPhone 16 Pro - 2024-11-11 at 21.55.30](https://github.com/samuelkchris/flutter_feature_tour/blob/master/images/images/Simulator
+![USimulator Screenshot - iPhone 16 Pro - 2024-11-11 at 21.55.30](https://github.com/samuelkchris/flutter_feature_tour/blob/master/images/Simulator
 Screenshot - iPhone 16 Pro - 2024-11-11 at 21.55.30.png)
 
-![Ufeatur 4](https://github.com/samuelkchris/flutter_feature_tour/blob/master/images/images/featur4.png)
+![Ufeatur 4](https://github.com/samuelkchris/flutter_feature_tour/blob/master/images/featur4.png)
 *Ufeatur 4*
 
-![Ufeature-mac](https://github.com/samuelkchris/flutter_feature_tour/blob/master/images/images/feature-mac.png)
+![Ufeature-mac](https://github.com/samuelkchris/flutter_feature_tour/blob/master/images/feature-mac.png)
 *Ufeature-mac*
 
-![Ufeature 2](https://github.com/samuelkchris/flutter_feature_tour/blob/master/images/images/feature2.png)
+![Ufeature 2](https://github.com/samuelkchris/flutter_feature_tour/blob/master/images/feature2.png)
 *Ufeature 2*
 
-![Ufeature 3](https://github.com/samuelkchris/flutter_feature_tour/blob/master/images/images/feature3.png)
+![Ufeature 3](https://github.com/samuelkchris/flutter_feature_tour/blob/master/images/feature3.png)
 *Ufeature 3*
 
 <!-- END DEMO -->
