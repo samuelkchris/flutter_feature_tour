@@ -1,34 +1,37 @@
 # 🎡 Flutter Feature Tour
 
-A powerful and customizable feature tour package for Flutter applications, designed to create engaging onboarding experiences and highlight key features of your app.
+A powerful and customizable feature tour package for Flutter applications, designed to create
+engaging onboarding experiences and highlight key features of your app.
+
 ## Demo
+
 ![Flutter Feature Tour Demo](https://via.placeholder.com/600x300.png?text=Flutter+Feature+Tour+Demo)
 <!-- BEGIN DEMO -->
-![USimulator Screenshot - iPhone 16 Pro - 2024-11-11 at 21.54.38](images/Simulator Screenshot - iPhone 16 Pro - 2024-11-11 at 21.54.38.png)
-*USimulator Screenshot - iPhone 16 Pro - 2024-11-11 at 21.54.38*
+![USimulator Screenshot - iPhone 16 Pro - 2024-11-11 at 21.54.38](https://github.com/samuelkchris/flutter_feature_tour/blob/master/images/images/Simulator
+Screenshot - iPhone 16 Pro - 2024-11-11 at 21.54.38.png)
 
-![USimulator Screenshot - iPhone 16 Pro - 2024-11-11 at 21.54.46](images/Simulator Screenshot - iPhone 16 Pro - 2024-11-11 at 21.54.46.png)
-*USimulator Screenshot - iPhone 16 Pro - 2024-11-11 at 21.54.46*
+![USimulator Screenshot - iPhone 16 Pro - 2024-11-11 at 21.54.46](https://github.com/samuelkchris/flutter_feature_tour/blob/master/images/images/Simulator
+Screenshot - iPhone 16 Pro - 2024-11-11 at 21.54.46.png)
 
-![USimulator Screenshot - iPhone 16 Pro - 2024-11-11 at 21.54.52](images/Simulator Screenshot - iPhone 16 Pro - 2024-11-11 at 21.54.52.png)
-*USimulator Screenshot - iPhone 16 Pro - 2024-11-11 at 21.54.52*
+![USimulator Screenshot - iPhone 16 Pro - 2024-11-11 at 21.54.52](https://github.com/samuelkchris/flutter_feature_tour/blob/master/images/images/Simulator
+Screenshot - iPhone 16 Pro - 2024-11-11 at 21.54.52.png)
 
-![USimulator Screenshot - iPhone 16 Pro - 2024-11-11 at 21.55.03](images/Simulator Screenshot - iPhone 16 Pro - 2024-11-11 at 21.55.03.png)
-*USimulator Screenshot - iPhone 16 Pro - 2024-11-11 at 21.55.03*
+![USimulator Screenshot - iPhone 16 Pro - 2024-11-11 at 21.55.03](https://github.com/samuelkchris/flutter_feature_tour/blob/master/images/images/Simulator
+Screenshot - iPhone 16 Pro - 2024-11-11 at 21.55.03.png)
 
-![USimulator Screenshot - iPhone 16 Pro - 2024-11-11 at 21.55.30](images/Simulator Screenshot - iPhone 16 Pro - 2024-11-11 at 21.55.30.png)
-*USimulator Screenshot - iPhone 16 Pro - 2024-11-11 at 21.55.30*
+![USimulator Screenshot - iPhone 16 Pro - 2024-11-11 at 21.55.30](https://github.com/samuelkchris/flutter_feature_tour/blob/master/images/images/Simulator
+Screenshot - iPhone 16 Pro - 2024-11-11 at 21.55.30.png)
 
-![Ufeatur 4](images/featur4.png)
+![Ufeatur 4](https://github.com/samuelkchris/flutter_feature_tour/blob/master/images/images/featur4.png)
 *Ufeatur 4*
 
-![Ufeature-mac](images/feature-mac.png)
+![Ufeature-mac](https://github.com/samuelkchris/flutter_feature_tour/blob/master/images/images/feature-mac.png)
 *Ufeature-mac*
 
-![Ufeature 2](images/feature2.png)
+![Ufeature 2](https://github.com/samuelkchris/flutter_feature_tour/blob/master/images/images/feature2.png)
 *Ufeature 2*
 
-![Ufeature 3](images/feature3.png)
+![Ufeature 3](https://github.com/samuelkchris/flutter_feature_tour/blob/master/images/images/feature3.png)
 *Ufeature 3*
 
 <!-- END DEMO -->
@@ -88,6 +91,7 @@ import 'package:flutter_feature_tour/flutter_feature_tour.dart';
 2. Create an instance of `OnboardingService`:
 
 ```dart
+
 final OnboardingService _onboardingService = OnboardingService();
 ```
 
@@ -120,7 +124,10 @@ void _setupOnboarding() {
 4. Start the onboarding process:
 
 ```dart
-_onboardingService.startOnboarding(context);
+_onboardingService.startOnboarding
+(
+context
+);
 ```
 
 ## 🎨 Customization
@@ -128,24 +135,32 @@ _onboardingService.startOnboarding(context);
 Customize the appearance of your feature tour using `FeatureTourTheme`:
 
 ```dart
-_onboardingService.setTheme(FeatureTourTheme(
-  overlayColor: Colors.black87,
-  highlightColor: Colors.amber,
-  cardColor: Colors.grey[900]!,
-  textColor: Colors.white,
-  primaryColor: Colors.amber,
-  titleStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-  bodyStyle: const TextStyle(fontSize: 16),
-  buttonStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-  cornerRadius: 12.0,
-  highlightBorderWidth: 3.0,
-));
+_onboardingService.setTheme
+(
+FeatureTourTheme(
+overlayColor: Colors.black87,
+highlightColor: Colors.amber,
+cardColor: Colors.grey[900]!,
+textColor: Colors.white,
+primaryColor: Colors.amber,
+titleStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+bodyStyle: const TextStyle(fontSize: 16),
+buttonStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+cornerRadius: 12.0,
+highlightBorderWidth
+:
+3.0
+,
+)
+);
 ```
 
 You can also use the theme from your app:
 
 ```dart
-_onboardingService.setTheme(FeatureTourTheme.fromTheme(Theme.of(context)));
+_onboardingService.setTheme
+(
+FeatureTourTheme.fromTheme(Theme.of(context)));
 ```
 
 ## 📊 Analytics
@@ -153,13 +168,16 @@ _onboardingService.setTheme(FeatureTourTheme.fromTheme(Theme.of(context)));
 Integrate analytics to track user engagement:
 
 ```dart
-_onboardingService.setAnalyticsCallback((String event, Map<String, dynamic> properties) {
-  // Implement your analytics tracking here
-  print('Analytics Event: $event, Properties: $properties');
+_onboardingService.setAnalyticsCallback
+(
+(String event, Map<String, dynamic> properties) {
+// Implement your analytics tracking here
+print('Analytics Event: $event, Properties: $properties');
 });
 ```
 
 The package tracks the following events:
+
 - onboarding_started
 - onboarding_restarted
 - step_viewed
@@ -171,36 +189,45 @@ The package tracks the following events:
 Add interactive elements to your tour steps:
 
 ```dart
-_onboardingService.setInteractiveWidgetBuilder((BuildContext context, VoidCallback onComplete) {
-  return ElevatedButton(
-    child: Text('Try it out!'),
-    onPressed: () {
-      // Simulate an action
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('You tried the feature!')),
-      );
-      onComplete();
-    },
-  );
+_onboardingService.setInteractiveWidgetBuilder
+(
+(BuildContext context, VoidCallback onComplete) {
+return ElevatedButton(
+child: Text('Try it out!'),
+onPressed: () {
+// Simulate an action
+ScaffoldMessenger.of(context).showSnackBar(
+SnackBar(content: Text('You tried the feature!')),
+);
+onComplete();
+},
+);
 });
 ```
 
 ## 🎭 Animations and Transitions
 
-The package includes smooth animations for the overlay appearance and highlight transitions. These are handled automatically by the `FeatureHighlightOverlay` widget.
+The package includes smooth animations for the overlay appearance and highlight transitions. These
+are handled automatically by the `FeatureHighlightOverlay` widget.
 
 ## 💾 Persistence
 
 The onboarding progress is automatically saved using Hive. To check if onboarding is completed:
 
 ```dart
-bool onboardingCompleted = await _onboardingService.isOnboardingCompleted();
+
+bool onboardingCompleted = await
+_onboardingService.isOnboardingCompleted
+();
 ```
 
 To restart the onboarding process:
 
 ```dart
-_onboardingService.restartOnboarding(context);
+_onboardingService.restartOnboarding
+(
+context
+);
 ```
 
 ## ♿ Accessibility
@@ -215,21 +242,24 @@ The package includes basic accessibility features:
 To facilitate testing, you can use the following methods:
 
 ```dart
-testWidgets('Feature tour test', (WidgetTester tester) async {
-  await tester.pumpWidget(MyApp());
-  
-  // Start onboarding
-  await tester.tap(find.byType(StartOnboardingButton));
-  await tester.pumpAndSettle();
+testWidgets
+('Feature tour test
+'
+, (WidgetTester tester) async {
+await tester.pumpWidget(MyApp());
 
-  expect(find.byType(FeatureHighlightOverlay), findsOneWidget);
-  expect(find.text('Search'), findsOneWidget);
+// Start onboarding
+await tester.tap(find.byType(StartOnboardingButton));
+await tester.pumpAndSettle();
 
-  // Tap next button
-  await tester.tap(find.text('Next'));
-  await tester.pumpAndSettle();
+expect(find.byType(FeatureHighlightOverlay), findsOneWidget);
+expect(find.text('Search'), findsOneWidget);
 
-  expect(find.text('Profile'), findsOneWidget);
+// Tap next button
+await tester.tap(find.text('Next'));
+await tester.pumpAndSettle();
+
+expect(find.text('Profile'), findsOneWidget);
 });
 ```
 
