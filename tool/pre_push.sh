@@ -26,6 +26,32 @@ fi
 #    exit 1
 #fi
 
+
+
+# Add changes
+echo "Adding changes..."
+git add .
+if [ $? -ne 0 ]; then
+    echo "Error: Failed to add changes"
+    exit 1
+fi
+
+# Commit changes
+echo "Committing changes..."
+git commit -m "Pre-push checks passed and changes committed"
+if [ $? -ne 0 ]; then
+    echo "Error: Failed to commit changes"
+    exit 1
+fi
+
+# Push changes
+echo "Pushing changes..."
+git push
+if [ $? -ne 0 ]; then
+    echo "Error: Failed to push changes"
+    exit 1
+fi
+
 # Check package
 echo "Checking package..."
 flutter pub publish --dry-run
@@ -34,4 +60,4 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-echo "All checks passed! Ready to push."
+echo "All checks passed and changes pushed successfully!"
