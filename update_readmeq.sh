@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Change to the directory containing the repository
-cd /Users/mac/StudioProjects/LoveGrow/lovegrow
+cd /Users/mac/StudioProjects/flutter_feature_tour
 
-# Loop to make 50 changes
-for i in {1..100}
+# Loop to make 100 changes
+for i in {1..500}
 do
   # Add a random word to the README.md file
   echo "RandomWord$RANDOM" >> README.md
@@ -16,5 +16,8 @@ do
   git commit -m "Auto-update README with random word $i"
 
   # Push the changes
-  git push origin main
+  git push origin master
+
+  # Wait for 2 minutes before the next iteration
+  sleep 20
 done

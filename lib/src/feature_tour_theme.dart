@@ -62,7 +62,9 @@ class FeatureTourTheme {
   /// [theme] - The [ThemeData] to base the feature tour theme on.
   factory FeatureTourTheme.fromTheme(ThemeData theme) {
     return FeatureTourTheme(
-      overlayColor: theme.colorScheme.onSurface.withOpacity(0.5),
+      overlayColor: theme.colorScheme.onSurface.withValues(
+        alpha: 0.75,
+      ),
       highlightColor: theme.colorScheme.primary,
       cardColor: theme.cardColor,
       textColor: theme.textTheme.bodyLarge!.color!,
